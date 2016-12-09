@@ -11,7 +11,7 @@ public class Game : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SpawnNextTetrimino();
+        SpawnNextTetromino();
 	}
 
     public bool IsFullRowAt (int y)
@@ -69,7 +69,7 @@ public class Game : MonoBehaviour {
         }
     }
 
-    public void UpdateGrid (Tetrimino tetrimino)
+    public void UpdateGrid (Tetromino Tetromino)
     {
         for (int y = 0; y < gridHeight; ++y)
         {
@@ -77,14 +77,14 @@ public class Game : MonoBehaviour {
             {
                 if (grid[x, y] != null)
                 {
-                    if (grid[x,y].parent == tetrimino.transform)
+                    if (grid[x,y].parent == Tetromino.transform)
                     {
                         grid[x, y] = null;
                     }
                 }
             }
         }
-        foreach (Transform mino in tetrimino.transform)
+        foreach (Transform mino in Tetromino.transform)
         {
             Vector2 pos = Round(mino.position);
             if (pos.y < gridHeight)
@@ -106,9 +106,9 @@ public class Game : MonoBehaviour {
         }
     }
 
-    public void SpawnNextTetrimino()
+    public void SpawnNextTetromino()
     {
-        GameObject nextTetrimino = (GameObject)Instantiate(Resources.Load(GetRandomTetrimino(), typeof(GameObject)), new Vector2(5.0f, 20.0f), Quaternion.identity);
+        GameObject nextTetromino = (GameObject)Instantiate(Resources.Load(GetRandomTetromino(), typeof(GameObject)), new Vector2(5.0f, 20.0f), Quaternion.identity);
     }
 
     public bool CheckIsInsideGrid (Vector2 pos)
@@ -121,34 +121,34 @@ public class Game : MonoBehaviour {
         return new Vector2(Mathf.Round(pos.x), Mathf.Round(pos.y));
     }
 
-    string GetRandomTetrimino ()
+    string GetRandomTetromino ()
     {
-        int randomTetrimino = Random.Range(1, 8);
-        string randomTetriminoName = "";
-        switch (randomTetrimino)
+        int randomTetromino = Random.Range(1, 8);
+        string randomTetrominoName = "";
+        switch (randomTetromino)
         {
             case 1:
-                randomTetriminoName = "Prefabs/Tetrimino_T";
+                randomTetrominoName = "Prefabs/Tetromino_T";
                 break;
             case 2:
-                randomTetriminoName = "Prefabs/Tetrimino_I";
+                randomTetrominoName = "Prefabs/Tetromino_I";
                 break;
             case 3:
-                randomTetriminoName = "Prefabs/Tetrimino_O";
+                randomTetrominoName = "Prefabs/Tetromino_O";
                 break;
             case 4:
-                randomTetriminoName = "Prefabs/Tetrimino_S";
+                randomTetrominoName = "Prefabs/Tetromino_S";
                 break;
             case 5:
-                randomTetriminoName = "Prefabs/Tetrimino_Z";
+                randomTetrominoName = "Prefabs/Tetromino_Z";
                 break;
             case 6:
-                randomTetriminoName = "Prefabs/Tetrimino_J";
+                randomTetrominoName = "Prefabs/Tetromino_J";
                 break;
             case 7:
-                randomTetriminoName = "Prefabs/Tetrimino_L";
+                randomTetrominoName = "Prefabs/Tetromino_L";
                 break;
         }
-        return randomTetriminoName;
+        return randomTetrominoName;
     }
 }

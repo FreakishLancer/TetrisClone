@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tetrimino : MonoBehaviour {
+public class Tetromino : MonoBehaviour {
 
     float fall = 0;
     float pressedDownInTime = 0;
@@ -59,7 +59,7 @@ public class Tetrimino : MonoBehaviour {
                 transform.position += new Vector3(0, 1, 0);
                 FindObjectOfType<Game>().DeleteRow();
                 enabled = false;
-                FindObjectOfType<Game>().SpawnNextTetrimino();
+                FindObjectOfType<Game>().SpawnNextTetromino();
             }
             fall = Time.time;
         }
@@ -78,7 +78,7 @@ public class Tetrimino : MonoBehaviour {
                     transform.position += new Vector3(0, 1, 0);
                     FindObjectOfType<Game>().DeleteRow();
                     enabled = false;
-                    FindObjectOfType<Game>().SpawnNextTetrimino();
+                    FindObjectOfType<Game>().SpawnNextTetromino();
                 }
             }
             else if (Input.GetKeyUp(KeyCode.S))
@@ -87,7 +87,7 @@ public class Tetrimino : MonoBehaviour {
                 transform.position += new Vector3(0, 1, 0);
                 FindObjectOfType<Game>().DeleteRow();
                 enabled = false;
-                FindObjectOfType<Game>().SpawnNextTetrimino();
+                FindObjectOfType<Game>().SpawnNextTetromino();
             }
             fall = Time.time;
         }
